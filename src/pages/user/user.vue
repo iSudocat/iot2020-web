@@ -72,14 +72,23 @@
 
                 <div class="col-lg-9">
                     <div>
-                        <b-card title="平衡状态">
+                        <b-card title="需求">
+                            <div>
+                                <needs/>
+                            </div>
+                        </b-card>
+                    </div>
+
+                    <div>
+                        <b-card title="平衡状态" style="margin-top: 10px;">
                             <div>
                                 <b-alert show variant='success'>暂无异常记录</b-alert>
                             </div>
                         </b-card>
                     </div>
+
                     <div>
-                        <b-card title="需求状态">
+                        <b-card title="天然气监测" style="margin-top: 10px;">
                             <div>
                                 <b-alert show variant='success'>暂无异常记录</b-alert>
                             </div>
@@ -160,6 +169,7 @@
     import activityChart from "@/pages/user/activityChart"
     import homeHumidityChart from "@/pages/user/homeHumidityChart"
     import homeTemperatureChart from "@/pages/user/homeTemperatureChart"
+    import needs from "@/pages/user/needs"
     export default {
         name: 'user',
         components: {
@@ -168,14 +178,15 @@
             temperatureChart,
             activityChart,
             homeHumidityChart,
-            homeTemperatureChart
+            homeTemperatureChart,
+            needs
         },
         data() {
             return {
                 form: {
                     name: '炫神',
-                    age: '20',
-                    tel: '12345678987',
+                    age: '80',
+                    tel: '11451419198',
                     add: '1号楼1层1户',
                     health: ''
                 },

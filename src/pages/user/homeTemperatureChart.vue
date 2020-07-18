@@ -28,7 +28,7 @@
                 position: 'relative'
             },
             variant: 'warning',
-            advice:'分析建议：室温偏高，建议开启空调。'
+            advice:'分析建议：室温偏高，建议开启空调制冷。'
         }),
         async mounted () {
             this.loaded = false
