@@ -10,6 +10,11 @@ module.exports = {
             entry: 'src/pages/user/user.js',
             template: 'src/pages/user/user.html',
             filename: 'user.html'
+        },
+        admin: {
+            entry: 'src/pages/admin/admin.js',
+            template: 'src/pages/admin/admin.html',
+            filename: 'admin.html'
         }
     }
 }

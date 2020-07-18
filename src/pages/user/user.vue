@@ -184,10 +184,10 @@
         data() {
             return {
                 form: {
-                    name: '炫神',
+                    name: 'xlx',
                     age: '80',
-                    tel: '11451419198',
-                    add: '1号楼1层1户',
+                    tel: '12345678987',
+                    add: '1号楼1单元1层1户',
                     health: ''
                 },
                 alone: "1",
