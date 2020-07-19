@@ -1,10 +1,25 @@
 <template>
     <div>
-        <b-table striped hover v-if="loaded" :items="items" :fields="fields">
-            <template v-slot:cell(record)="data">
-                <a :href="`${data.value}`" target="_blank">点击收听</a>
-            </template>
-        </b-table>
+        <b-card title="需求">
+            <div>
+                <b-table striped hover responsive  v-if="loaded" :items="items" :fields="fields">
+                    <template v-slot:cell(record)="data">
+                        <a :href="`${data.value}`" target="_blank">点击收听</a>
+                    </template>
+                    <template v-slot:head()="scope">
+                        <div class="text-nowrap">
+                            {{ scope.label }}
+                        </div>
+                    </template>
+                    <template v-slot:cell()="data">
+                        <div class="text-nowrap">
+                            {{data.value}}
+                        </div>
+                    </template>
+                </b-table>
+            </div>
+        </b-card>
+
     </div>
 </template>
 

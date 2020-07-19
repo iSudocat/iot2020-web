@@ -1,15 +1,16 @@
 <template>
-    <div class="container">
-        <b-alert show :variant='variant'>{{ advice }}</b-alert>
-        <div>
-            <line-chart
-                    v-if="loaded"
-                    :chartdata="chartdata"
-                    :options="chartoption"
-                    :styles="myStyles"
-            />
-        </div>
-
+    <div>
+        <b-card title="家庭湿度">
+            <b-alert show :variant='variant'>{{ advice }}</b-alert>
+            <div>
+                <line-chart
+                        v-if="loaded"
+                        :chartdata="chartdata"
+                        :options="chartoption"
+                        :styles="myStyles"
+                />
+            </div>
+        </b-card>
     </div>
 </template>
 

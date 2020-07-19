@@ -77,8 +77,13 @@
         methods: {
             onSubmit(evt) {
                 evt.preventDefault()
-                //alert(JSON.stringify(this.form))
-                window.location.href = 'user.html'
+                if(this.form.UserID === 'user'){
+                    window.location.href = 'user.html'
+                }else if(this.form.UserID === 'admin'){
+                    window.location.href = 'admin.html'
+                }
+
+
             }
         }
     }

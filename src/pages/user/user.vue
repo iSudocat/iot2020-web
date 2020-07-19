@@ -9,7 +9,7 @@
                         <a class="blog-header-logo" style="font-size:30px;">个人中心</a>
                     </div>
                     <div class="col-4 d-flex justify-content-end align-items-center">
-                        <a class="btn btn-outline-secondary" href="#">Log out</a>
+                        <a class="btn btn-outline-secondary" @click="logOut">Log out</a>
                     </div>
                 </div>
 
@@ -17,187 +17,75 @@
 
             <div class="row">
                 <div class="col-lg-3">
-                    <div>
-                        <b-card
-                                title="基本信息"
-                                img-src="img/2.png"
-                                img-alt="Image"
-                                img-top
-                                tag="article"
-
-                                class="mb-2"
-                        >
-                            <div>
-                                <label>姓名：</label>
-                                <b-form-input v-model="form.name" type="text"
-                                              placeholder="Enter your name"></b-form-input>
-                                <label style="margin-top: 10px;">年龄：</label>
-                                <b-form-input v-model="form.age" type="number"
-                                              placeholder="Enter your age"></b-form-input>
-                                <label style="margin-top: 10px;">联系方式：</label>
-                                <b-form-input v-model="form.tel" type="tel"
-                                              placeholder="Enter your telephone number"></b-form-input>
-                                <label style="margin-top: 10px;">住址：</label>
-                                <b-form-input v-model="form.add" type="text"
-                                              placeholder="Enter your address"></b-form-input>
-                                <div>
-                                    <b-form-group label="当前是否独居:" style="margin-top: 10px;">
-                                        <b-form-radio-group id="radio-group-2" v-model="alone" name="is-alone">
-                                            <b-form-radio value="1">是</b-form-radio>
-                                            <b-form-radio value="0">否</b-form-radio>
-                                        </b-form-radio-group>
-                                    </b-form-group>
-                                </div>
-                                <div>
-                                    <label>备注信息：</label>
-                                    <b-form-textarea
-                                            id="hc"
-                                            v-model="form.health"
-                                            placeholder="Enter something..."
-                                            rows="3"
-                                            max-rows="6"
-                                    ></b-form-textarea>
-                                    <pre class="mt-3 mb-0">{{ form.health }}</pre>
-                                </div>
-                            </div>
-
-                            <b-button block pill variant="outline-primary" v-on:click="submitForm"
-                                      style="margin-top: 10px;">提交修改
-                            </b-button>
-                        </b-card>
-
-
-                    </div>
+                    <info/>
                 </div>
 
                 <div class="col-lg-9">
                     <div>
-                        <b-card title="需求">
-                            <div>
-                                <needs/>
-                            </div>
-                        </b-card>
+                        <needs/>
                     </div>
-
-                    <div>
-                        <b-card title="平衡状态" style="margin-top: 10px;">
-                            <div>
-                                <b-alert show variant='success'>暂无异常记录</b-alert>
-                            </div>
-                        </b-card>
+                    <div style="margin-top: 10px;">
+                        <balance/>
                     </div>
-
-                    <div>
-                        <b-card title="天然气监测" style="margin-top: 10px;">
-                            <div>
-                                <b-alert show variant='success'>暂无异常记录</b-alert>
-                            </div>
-                        </b-card>
+                    <div style="margin-top: 10px;">
+                        <gas/>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row  row-cols-lg-2">
                 <div class="col-lg-6" style="margin-top: 10px;">
-                    <div>
-                        <b-card title="步数">
-                            <div>
-                                <stepChart/>
-                            </div>
-                        </b-card>
-                    </div>
-
-                    <div>
-                        <b-card title="心率" style="margin-top: 10px;">
-                            <div>
-                                <heartChart/>
-                            </div>
-                        </b-card>
-                    </div>
+                    <step/>
                 </div>
-
-                <div class="col-lg-6">
-
-                    <div>
-                        <b-card title="活动情况" style="margin-top: 10px;">
-                            <div>
-                                <activityChart/>
-                            </div>
-                        </b-card>
-                    </div>
-
-                    <div>
-                        <b-card title="体温" style="margin-top: 10px;">
-                            <div>
-                                <temperatureChart/>
-                            </div>
-                        </b-card>
-                    </div>
-
+                <div class="col-lg-6" style="margin-top: 10px;">
+                    <activity/>
+                </div>
+                <div class="col-lg-6" style="margin-top: 10px;">
+                    <heart/>
+                </div>
+                <div class="col-lg-6" style="margin-top: 10px;">
+                    <temperature/>
+                </div>
+                <div class="col-lg-6" style="margin-top: 10px;">
+                    <homeTemperature/>
+                </div>
+                <div class="col-lg-6" style="margin-top: 10px; margin-bottom: 10px;">
+                    <homeHumidity/>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-6">
-                    <div>
-                        <b-card title="家庭温度"  style="margin-top: 10px;">
-                            <div>
-                                <homeTemperatureChart/>
-                            </div>
-                        </b-card>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div>
-                        <b-card title="家庭湿度"  style="margin-top: 10px;">
-                            <div>
-                                <homeHumidityChart/>
-                            </div>
-                        </b-card>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </template>
 
 <script>
-    import stepChart from "@/pages/user/stepChart"
-    import heartChart from "@/pages/user/heartChart"
-    import temperatureChart from "@/pages/user/temperatureChart"
-    import activityChart from "@/pages/user/activityChart"
-    import homeHumidityChart from "@/pages/user/homeHumidityChart"
-    import homeTemperatureChart from "@/pages/user/homeTemperatureChart"
+    import info from "@/pages/user/info"
+    import step from "@/pages/user/step"
+    import heart from "@/pages/user/heart"
+    import temperature from "@/pages/user/temperature"
+    import activity from "@/pages/user/activity"
+    import homeHumidity from "@/pages/user/homeHumidity"
+    import homeTemperature from "@/pages/user/homeTemperature"
     import needs from "@/pages/user/needs"
+    import balance from "@/pages/user/balance"
+    import gas from "@/pages/user/gas"
     export default {
         name: 'user',
         components: {
-            stepChart,
-            heartChart,
-            temperatureChart,
-            activityChart,
-            homeHumidityChart,
-            homeTemperatureChart,
-            needs
-        },
-        data() {
-            return {
-                form: {
-                    name: 'xlx',
-                    age: '80',
-                    tel: '12345678987',
-                    add: '1号楼1单元1层1户',
-                    health: ''
-                },
-                alone: "1",
-
-            }
-
+            info,
+            step,
+            heart,
+            temperature,
+            activity,
+            homeHumidity,
+            homeTemperature,
+            needs,
+            balance,
+            gas
         },
         methods: {
-            submitForm: function () {
-                alert("成功！")
+            logOut: function () {
+                window.location.href = 'index.html'
             }
         }
 

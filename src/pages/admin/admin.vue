@@ -9,7 +9,7 @@
                         <a class="blog-header-logo" style="font-size:30px;">管理中心</a>
                     </div>
                     <div class="col-4 d-flex justify-content-end align-items-center">
-                        <a class="btn btn-outline-secondary" href="#">Log out</a>
+                        <a class="btn btn-outline-secondary" @click="logOut">Log out</a>
                     </div>
                 </div>
 
@@ -21,26 +21,28 @@
                         编号:{{adminInfo.no}} 姓名:{{adminInfo.name}} 联系方式:{{adminInfo.tel}} 负责区域:{{adminInfo.area}}
                     </b-alert>
                     <div>
-                        <b-card title="需求">
-                            <div>
-                                <needs/>
-                            </div>
-                        </b-card>
+                        <needs/>
                     </div>
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-lg-12">
+                    <adminUser/>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     import needs from "@/pages/admin/needs"
+    import adminUser from "@/pages/admin/adminUser"
     export default {
-
         name: 'admin',
         components: {
-            needs
+            needs,
+            adminUser
         },
         data() {
             return {
@@ -54,8 +56,8 @@
 
         },
         methods: {
-            submitForm: function () {
-                alert("成功！")
+            logOut: function () {
+                window.location.href = 'index.html'
             }
         }
 
