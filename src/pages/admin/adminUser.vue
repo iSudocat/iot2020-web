@@ -22,7 +22,7 @@
                 </b-table>
             </div>
 
-            <b-modal size="xl" scrollable :id="userModal.id" :title="userModal.title">
+            <b-modal size="xl" scrollable :id="userModal.id" :title="userModal.title" ok-only>
                 <div class="row">
                     <div class="col-lg-12">
                         <div>
