@@ -10,20 +10,20 @@
         >
             <div>
                 <label>姓名：</label>
-                <b-form-input v-model="form.name" type="text"
+                <b-form-input v-model="info.name" type="text"
                               placeholder="Enter your name"></b-form-input>
                 <label style="margin-top: 10px;">年龄：</label>
-                <b-form-input v-model="form.age" type="number"
+                <b-form-input v-model="info.age" type="number"
                               placeholder="Enter your age"></b-form-input>
                 <label style="margin-top: 10px;">联系方式：</label>
-                <b-form-input v-model="form.tel" type="tel"
+                <b-form-input v-model="info.tel" type="tel"
                               placeholder="Enter your telephone number"></b-form-input>
                 <label style="margin-top: 10px;">住址：</label>
-                <b-form-input v-model="form.add" type="text"
+                <b-form-input v-model="info.add" type="text"
                               placeholder="Enter your address"></b-form-input>
                 <div>
                     <b-form-group label="当前是否独居:" style="margin-top: 10px;">
-                        <b-form-radio-group id="radio-group-2" v-model="alone" name="is-alone">
+                        <b-form-radio-group id="radio-group-2" v-model="info.alone" name="is-alone">
                             <b-form-radio value="1">是</b-form-radio>
                             <b-form-radio value="0">否</b-form-radio>
                         </b-form-radio-group>
@@ -33,17 +33,16 @@
                     <label>备注信息：</label>
                     <b-form-textarea
                             id="hc"
-                            v-model="form.health"
+                            v-model="info.note"
                             placeholder="Enter something..."
                             rows="3"
                             max-rows="6"
                     ></b-form-textarea>
-                    <pre class="mt-3 mb-0">{{ form.health }}</pre>
                 </div>
             </div>
 
-            <b-button block pill variant="outline-primary" v-on:click="submitForm"
-                      style="margin-top: 10px;">提交修改
+            <b-button block pill variant="outline-primary" v-on:click="submitForm" style="margin-top: 10px;">
+                提交修改
             </b-button>
         </b-card>
 
@@ -55,14 +54,15 @@
     export default {
         name: "info",
         data: () => ({
-            form: {
-                name: 'xlx',
+            info: {
+                name: '金泽辉',
                 age: '80',
-                tel: '12345678987',
-                add: '1号楼1单元1层1户',
-                health: ''
+                tel: '13666666666',
+                add: '1号楼2单元3层1户',
+                note: '老人周内独自在家，请多关照。',
+                alone: "1"
             },
-            alone: "1"
+
         }),
         methods: {
             submitForm: function () {

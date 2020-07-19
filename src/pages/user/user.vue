@@ -9,7 +9,7 @@
                         <a class="blog-header-logo" style="font-size:30px;">个人中心</a>
                     </div>
                     <div class="col-4 d-flex justify-content-end align-items-center">
-                        <a class="btn btn-outline-secondary" @click="logOut">Log out</a>
+                        <a class="btn btn-outline-secondary" @click="logOut">注销</a>
                     </div>
                 </div>
 
@@ -28,7 +28,7 @@
                         <balance/>
                     </div>
                     <div style="margin-top: 10px;">
-                        <gas/>
+                        <fire/>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
     import homeTemperature from "@/pages/user/homeTemperature"
     import needs from "@/pages/user/needs"
     import balance from "@/pages/user/balance"
-    import gas from "@/pages/user/gas"
+    import fire from "@/pages/user/fire"
     export default {
         name: 'user',
         components: {
@@ -81,7 +81,7 @@
             homeTemperature,
             needs,
             balance,
-            gas
+            fire
         },
         methods: {
             logOut: function () {

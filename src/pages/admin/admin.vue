@@ -9,7 +9,7 @@
                         <a class="blog-header-logo" style="font-size:30px;">管理中心</a>
                     </div>
                     <div class="col-4 d-flex justify-content-end align-items-center">
-                        <a class="btn btn-outline-secondary" @click="logOut">Log out</a>
+                        <a class="btn btn-outline-secondary" @click="logOut">注销</a>
                     </div>
                 </div>
 
@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" style="margin-top: 10px; margin-bottom: 10px;">
                 <div class="col-lg-12">
                     <adminUser/>
                 </div>
@@ -47,10 +47,10 @@
         data() {
             return {
                 adminInfo: {
-                    name: '炫神',
+                    name: '社区管理员-辛林炫',
                     no: '000001',
-                    tel: '11451419198',
-                    area: '鱼塘'
+                    tel: '13555555555',
+                    area: '蒂姆山庄'
                 }
             }
 

@@ -2,10 +2,10 @@
     <div>
         <b-card title="人员管理">
             <div>
-                <b-table striped hover responsive v-if="loaded" :fields="fields" :items="items">
+                <b-table hover responsive v-if="loaded" :fields="fields" :items="items" :tbody-tr-class="rowClass">
                     <template v-slot:cell(operation)="row" >
-                        <b-button variant="primary" size="sm" @click="initModal(row.item, row.index, $event.target)" style="width: 6rem">
-                            查看详情
+                        <b-button variant="info" size="sm" @click="initModal(row.item, row.index, $event.target)" style="width: 3rem">
+                            详情
                         </b-button>
                     </template>
 
@@ -25,6 +25,9 @@
             <b-modal size="xl" scrollable :id="userModal.id" :title="userModal.title" ok-only>
                 <div class="row">
                     <div class="col-lg-12">
+                        <div>
+                            <adminUserInfo/>
+                        </div>
                         <div>
                             <needs/>
                         </div>
@@ -62,6 +65,7 @@
 </template>
 
 <script>
+    import adminUserInfo from "@/pages/admin/adminUserInfo"
     import step from "@/pages/user/step"
     import heart from "@/pages/user/heart"
     import temperature from "@/pages/user/temperature"
@@ -70,10 +74,11 @@
     import homeTemperature from "@/pages/user/homeTemperature"
     import needs from "@/pages/user/needs"
     import balance from "@/pages/user/balance"
-    import gas from "@/pages/user/gas"
+    import gas from "@/pages/user/fire"
     export default {
         name: "adminUser",
         components: {
+            adminUserInfo,
             step,
             heart,
             temperature,
@@ -101,10 +106,10 @@
             this.loaded = false
             try {
                 this.adminInfo = {
-                    name: '炫神',
+                    name: '社区管理员-辛林炫',
                     no: '000001',
-                    tel: '11451419198',
-                    area: '鱼塘'
+                    tel: '13555555555',
+                    area: '蒂姆山庄'
                 }
                 this.fields =[
                     { key: 'name', label: '姓名' },
@@ -112,15 +117,17 @@
                     { key: 'address', label: '住址' },
                     { key: 'health', label:'健康状况' },
                     { key: 'help', label:'是否需要上门服务' },
+                    { key: 'reason', label:'原因' },
                     { key: 'operation', label:'操作' }
                 ]
                 this.items = [
                     {
-                        name:'xlx',
-                        address:'1号楼1单元1层1户',
-                        tel:'12345678987',
+                        name: '金泽辉',
+                        tel: '13666666666',
+                        address: '1号楼2单元3层1户',
                         health:'正常',
-                        help:'否'
+                        help: '是',
+                        reason: '可能发生火灾'
                     }
                 ]
                 this.loaded = true
@@ -134,6 +141,10 @@
             initModal(item, index, button) {
                 this.userModal.index = index
                 this.$root.$emit('bv::show::modal', this.userModal.id, button)
+            },
+            rowClass(item, type) {
+                if (!item || type !== 'row') return
+                if (item.help === '是') return 'table-danger'
             }
         }
     }
