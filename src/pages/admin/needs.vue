@@ -90,10 +90,10 @@
             this.loaded = false
             try {
                 this.adminInfo = {
-                    name: '炫神',
+                    name: '社区管理员-辛林炫',
                     no: '000001',
-                    tel: '11451419198',
-                    area: '鱼塘'
+                    tel: '13555555555',
+                    area: '蒂姆山庄'
                 }
                 this.fields =[
                     { key: 'time', label: '提交时间' },
